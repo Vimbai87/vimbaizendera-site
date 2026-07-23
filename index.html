@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<!-- vimbaizendera.co.uk — build v4 — 23 July 2026 -->
+<!-- vimbaizendera.co.uk — build v6 — 23 July 2026 -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>Vimbai Zendera — Leadership & Management Development</title>
 <meta name="description" content="Vimbai Zendera — leadership and management development professional. Programme design, facilitation and executive coaching across media, sport and beyond.">
 <meta property="og:title" content="Vimbai Zendera — Leadership & Management Development">
@@ -15,13 +16,14 @@
 
 <style>
 :root{
+  color-scheme:light;   /* stops phones and in-app viewers auto-darkening the page */
   --ink:#1b1720; --paper:#f5f1ea; --paper-2:#efe9df;
   --plum:#3d2b46; --plum-mid:#6b4d73; --brass:#b07a34; --brass-soft:#c79a55;
   --rose:#b98f86; --line:rgba(27,23,32,.12); --line-2:rgba(27,23,32,.08);
   --ink-60:rgba(27,23,32,.62); --ink-40:rgba(27,23,32,.42);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth; background:var(--paper)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   margin:0; background:var(--paper); color:var(--ink);
@@ -271,7 +273,7 @@ const CONTENT = {
 
   /* ---- CONTACT / FOOTER ---- */
   contactHeading: `Get in touch`,
-  contactBody: `For coaching, facilitation, or a conversation about leadership development.`, /* (DRAFT) */
+  contactBody: ``, /* availability line removed 23 Jul — was: `For coaching, facilitation, or a conversation about leadership development.` */
   footerNote: `Vimbai Zendera`
 };
 </script>
@@ -399,7 +401,7 @@ const html = `
 
 <section class="contact" id="contact"><div class="wrap rv">
   <div class="eyebrow" style="justify-content:center">${motif}${esc(C.contactHeading)}</div>
-  <p class="lead">${esc(C.contactBody)}</p>
+  ${C.contactBody && C.contactBody.trim() ? `<p class="lead">${esc(C.contactBody)}</p>` : ''}
   <a class="mail" href="mailto:${esc(C.email)}">${esc(C.email)}</a>
 </div></section>
 
