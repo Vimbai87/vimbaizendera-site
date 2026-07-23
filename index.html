@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- vimbaizendera.co.uk — build v4 — 23 July 2026 -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
@@ -56,8 +57,10 @@ nav{position:sticky; top:0; z-index:50; background:rgba(245,241,234,.86); backdr
 .hero .role{font-family:"Bricolage Grotesque",sans-serif; font-weight:500; font-size:16px; letter-spacing:.02em; color:var(--plum-mid); margin:18px 0 26px}
 .hero .thesis{font-family:"Spectral",serif; font-size:clamp(20px,2.6vw,25px); line-height:1.42; color:var(--ink); font-weight:400; max-width:34ch; margin-bottom:34px}
 .portrait{position:relative}
-.portrait img{width:100%; border-radius:3px; box-shadow:0 30px 60px -30px rgba(27,23,32,.5)}
-.portrait::before{content:""; position:absolute; inset:14px -14px -14px 14px; border:1px solid var(--brass); border-radius:3px; z-index:-1}
+.portrait img{width:100%; aspect-ratio:5/4; object-fit:cover; object-position:42% 50%; border-radius:2px; box-shadow:0 26px 50px -26px rgba(27,23,32,.45)}
+/* crop is CSS-only — original photo untouched. Adjust object-position (42% = how far right) or aspect-ratio to re-crop. */
+/* offset brass frame retired 23 Jul — only two edges rendered, read as a fault. To restore:
+.portrait::before{content:""; position:absolute; inset:14px -14px -14px 14px; border:1px solid var(--brass); border-radius:3px; z-index:-1} */
 .actions{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
 .btn{font-family:"Bricolage Grotesque",sans-serif; font-weight:600; font-size:15px; text-decoration:none; padding:13px 22px; border-radius:2px; transition:transform .15s, background .2s, color .2s; display:inline-flex; align-items:center; gap:9px}
 .btn-primary{background:var(--ink); color:var(--paper)}
@@ -65,7 +68,12 @@ nav{position:sticky; top:0; z-index:50; background:rgba(245,241,234,.86); backdr
 .btn-ghost{border:1px solid var(--line); color:var(--ink)}
 .btn-ghost:hover{border-color:var(--ink); transform:translateY(-2px)}
 .hero-actions-note{font-size:13.5px; color:var(--ink-40); margin-top:16px; letter-spacing:.02em}
-@media(max-width:820px){.hero-grid{grid-template-columns:1fr; gap:40px} .portrait{max-width:380px} .portrait::before{inset:10px -10px -10px 10px}}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr; gap:40px} .portrait{max-width:420px}}
+@media(max-width:520px){
+  .actions{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  .btn{justify-content:center; padding:15px 12px; text-align:center}
+  .actions .btn:nth-child(3){grid-column:1 / -1}
+}
 
 /* SECTIONS */
 section{padding:74px 0; border-top:1px solid var(--line-2)}
@@ -167,20 +175,21 @@ footer a{color:var(--ink-60); text-decoration:none}
 const CONTENT = {
 
   /* ---- YOUR DETAILS (FILL ME IN) ---- */
-  email:        `hello@vimbaizendera.co.uk`,   /* <-- FILL ME IN: your real email */
-  linkedin:     ``,                            /* <-- FILL ME IN: your public LinkedIn URL, e.g. https://www.linkedin.com/in/your-name  (leave empty to hide the button) */
+  email:        `Vzendera@hotmail.co.uk`,      /* domain email to replace this once set up */
+  linkedin:     `https://www.linkedin.com/in/vimbai-zendera-assoc-cipd`,   /* leave empty to hide the button */
   cvFile:       `Vimbai-Zendera-CV.pdf`,       /* <-- the CV file you'll upload next to this page (leave as is) */
 
   /* ---- HERO ---- */
   name:    `Vimbai Zendera`,
   role:    `Management & Leadership Development Professional`,
-  thesis:  `I help managers close the distance between what they intend and what their teams actually experience.`, /* (DRAFT) */
-  heroActions: `Coaching · Facilitation · Programme design`, /* (DRAFT) small line under the buttons */
+  thesis:  ``, /* strapline removed 23 Jul — previous text kept below if ever wanted:
+                 `I help managers close the distance between what they intend and what their teams actually experience.` */
+  heroActions: ``, /* services line removed 23 Jul — was: `Coaching · Facilitation · Programme design` */
 
   /* ---- ABOUT ---- */
   aboutEyebrow: `About`,
-  aboutHeading: `A decade closing the gap between leadership intent and impact.`, /* (DRAFT) */
-  summary: `A leadership and management development professional with over a decade of experience across media, entertainment, sport, transport, utilities, and the public sector. I specialise in designing and delivering development programmes that work — not just in the room, but in the way people lead the day after. My work operates across the full leadership spectrum, from early careers through to senior leaders, and draws on deep experience of what it actually takes to build capability in complex, high-performance environments.`,
+  aboutHeading: `Fifteen years across recruitment, talent and leadership development.`,
+  summary: `A leadership and management development professional with fifteen years of experience across media, entertainment, sport, transport, utilities, and the public sector. I specialise in designing and delivering development programmes that work — not just in the room, but in the way people lead the day after. My work operates across the full leadership spectrum, from early careers through to senior leaders, and draws on deep experience of what it actually takes to build capability in complex, high-performance environments.`,
 
   knownForHeading: `Known for`,
   knownFor: [
@@ -202,8 +211,8 @@ const CONTENT = {
       detail:`Early careers programmes including the Content Academy, alongside outreach such as 10,000 Black Interns, Women in Football, and schools and universities engagement. This period deepened my expertise in access, representation, and the development of people at the start of their careers — and gave me some of the strongest evidence of what great management looks like when it is done well.` },
     { role:`Talent Development Manager`, org:`London Energy, Vorboss, Voneus`, period:`2018 — 2021`,
       detail:`Recruitment strategy and onboarding across seven sites at London Energy, and diversity and inclusion partnerships as part of the organisation's 'great place to work' accreditation. This included a dedicated early-careers strand — psychometric testing for the Engineering Graduate Programme and the company's first Degree Apprenticeship — alongside a 35% reduction in recruitment spend.` },
-    { role:`Recruitment & Talent Acquisition`, org:`Multiple organisations`, period:`2013 — 2018`,
-      detail:`Broad commercial experience across welfare-to-work, travel, media, transport and professional services. Early experience in the welfare-to-work sector taught me that showing up and following through can matter in ways that go far beyond the professional — a grounding that has stayed with me.` }
+    { role:`Recruitment & Talent Acquisition`, org:`Ingeus · Chiltern Railways · MAPP`, period:`2010 — 2018`,
+      detail:`Eight years of commercial experience across welfare-to-work, travel, media, transport and professional services. Early experience at Ingeus in the welfare-to-work sector, supporting the long-term unemployed back into work, taught me that showing up and following through can matter in ways that go far beyond the professional — a grounding that has stayed with me.` }
   ],
 
   /* ---- IN THE ROOM ---- */
@@ -245,12 +254,12 @@ const CONTENT = {
   galleryHeading: `Beyond the programme`,
   galleryIntro: `Facilitation, panels and early-careers work across Sky and beyond.`, /* (DRAFT) */
   gallery: [
-    { img:`studio`,    caption:`Recording for the Believe in Better Leadership Academy.` },
-    { img:`vuca`,      caption:`Facilitating the Global Commerce Manager Excellence Programme.` },
-    { img:`sofa_trio`, caption:`Hosting the Sky Sports inclusion update.` },
-    { img:`ec_room`,   caption:`In the room — an Empower Management Programme workshop.` },
-    { img:`ec_stage`,  caption:`Speaking at Sky Early Careers.` },
-    { img:`ec_circle`, caption:`An early careers session with Sky Sports News presenter Mike Wedderburn (left).` }
+    { img:`studio`,      caption:`Recording the Believe in Better Leadership Academy podcast, on better conversations — made for Sky's leadership population.` },
+    { img:`vuca`,        caption:`Delivering a session on adaptive leadership for the Global Commerce Manager Excellence Programme.` },
+    { img:`sofa_trio`,   caption:`Hosting the Sky Sports inclusion update.` },
+    { img:`ec_room`,     caption:`An Empower Management Programme workshop, mid-session.` },
+    { img:`ec_stage`,    caption:`The Content Academy graduation — marking eleven graduates through to completion of the programme.` },
+    { img:`ec_circle`,   caption:`An early careers outreach session with Badu Sports, alongside Sky Sports News presenter Mike Wedderburn.` }
   ],
 
   /* ---- VIEW FROM THE MIDDLE ---- */
@@ -302,13 +311,13 @@ const html = `
   <div class="rv">
     <h1>${esc(C.name)}</h1>
     <div class="role">${esc(C.role)}</div>
-    <p class="thesis">${esc(C.thesis)}</p>
+    ${C.thesis && C.thesis.trim() ? `<p class="thesis">${esc(C.thesis)}</p>` : ''}
     <div class="actions">
       <a class="btn btn-primary" href="#contact">Get in touch</a>
       <a class="btn btn-ghost" href="${esc(C.cvFile)}" download>Download CV</a>
       ${linkedinBtn}
     </div>
-    <div class="hero-actions-note">${esc(C.heroActions)}</div>
+    ${C.heroActions && C.heroActions.trim() ? `<div class="hero-actions-note">${esc(C.heroActions)}</div>` : ''}
   </div>
   <div class="portrait rv"><img src="${IMGS.portrait}" alt="${esc(C.name)}"></div>
 </div></div></header>
